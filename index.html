@@ -354,6 +354,42 @@ footer .fine{margin-top:18px;font-size:11px;color:rgba(255,255,255,0.4)}
 #site-splash .splash-msg{
   font-size:13.5px;color:var(--ink-soft);text-align:center;max-width:280px;
 }
+
+/* شريط آخر تحديث */
+.update-bar{
+  background:var(--dark-green);color:#fff;text-align:center;
+  padding:6px 16px;font-size:11.5px;font-weight:700;letter-spacing:.3px;
+}
+
+/* شريط التحديثات المتحركة */
+.ticker-wrap{
+  background:#1e2b22;overflow:hidden;position:relative;
+  padding:9px 0;border-bottom:1px solid rgba(156,198,33,0.25);
+  direction:ltr;
+}
+.ticker-wrap::before, .ticker-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none;
+}
+.ticker-wrap::before{right:0;background:linear-gradient(to left, #1e2b22, transparent);}
+.ticker-wrap::after{left:0;background:linear-gradient(to right, #1e2b22, transparent);}
+.ticker-track{
+  display:flex;flex-wrap:nowrap;white-space:nowrap;width:max-content;
+  animation:ticker-scroll 42s linear infinite;
+  direction:rtl;
+}
+.ticker-track span{
+  display:inline-flex;align-items:center;gap:8px;flex-shrink:0;
+  color:#e9f5da;font-size:12.5px;font-weight:600;padding:0 34px;
+}
+.ticker-track span b{color:var(--lime-bright);font-weight:800}
+.ticker-track .sep{color:rgba(255,255,255,0.3);font-weight:400}
+@keyframes ticker-scroll{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+@media (prefers-reduced-motion: reduce){
+  .ticker-track{animation:none}
+}
 </style>
 </head>
 <body>
@@ -371,7 +407,27 @@ window.addEventListener('load', function(){
 });
 </script>
 
+<div class="update-bar">🕓 آخر تحديث للمشروع: 25 يوليو 2026</div>
+
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span><b>🔔 آخر التحديثات</b></span>
+    <span>اعتماد <b>مصفوفة المسؤوليات RACI</b> الكاملة لفريق العمل <span class="sep">·</span></span>
+    <span>معمارية <b>YOLOv5s</b> معتمدة كبديل تقني مقترح ضمن مسار SFDA <span class="sep">·</span></span>
+    <span>تصوّر انتقال مبني على إطار <b>GMLP</b> الدولي جاهز <span class="sep">·</span></span>
+    <span>رؤية خدمة الحجاج — <b>مستهدفة لموسم حج 1448</b> بإذن الله <span class="sep">·</span></span>
+    <span>إحاطة رسمية لفريق العمل حول أولويات الانتقال جاهزة <span class="sep">·</span></span>
+    <span><b>🔔 آخر التحديثات</b></span>
+    <span>اعتماد <b>مصفوفة المسؤوليات RACI</b> الكاملة لفريق العمل <span class="sep">·</span></span>
+    <span>معمارية <b>YOLOv5s</b> معتمدة كبديل تقني مقترح ضمن مسار SFDA <span class="sep">·</span></span>
+    <span>تصوّر انتقال مبني على إطار <b>GMLP</b> الدولي جاهز <span class="sep">·</span></span>
+    <span>رؤية خدمة الحجاج — <b>مستهدفة لموسم حج 1448</b> بإذن الله <span class="sep">·</span></span>
+    <span>إحاطة رسمية لفريق العمل حول أولويات الانتقال جاهزة <span class="sep">·</span></span>
+  </div>
+</div>
+
 <div class="badge-bar">معاينة داخلية للفريق — نسخة تصورية قبل الاعتماد، ليست للنشر العام</div>
+
 
 <header>
   <div class="logo-wrap">
@@ -386,6 +442,7 @@ window.addEventListener('load', function(){
     <a href="#roadmap">خارطة الطريق</a>
     <a href="#team">الفريق</a>
     <a href="responsibilities.html">مصفوفة المسؤوليات</a>
+    <a href="إحاطة_فريق_العمل.html">رسالة إحاطة فريق العمل</a>
     <a href="#compliance">الامتثال</a>
   </nav>
 </header>
@@ -734,7 +791,7 @@ document.addEventListener('keydown', function(e){
 });
 </script>
 
-
+<section id="compliance">
   <div class="compliance-note">
     <div class="mark">!</div>
     <p><strong>ملاحظة امتثال:</strong> هذا المشروع في مرحلة تطوير أولي. لا يُستخدم حالياً لأي تشخيص طبي فعلي، ولن يُطرح للاستخدام السريري إلا بعد الحصول على ترخيص Software as a Medical Device (SaMD) رسمي من الهيئة العامة للغذاء والدواء (SFDA)، وفق إرشادات MDS-G010 وMDS-G023/G027.</p>
